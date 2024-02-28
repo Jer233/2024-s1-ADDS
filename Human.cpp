@@ -5,7 +5,7 @@ Human::Human(const string& name) : name(name) {}
 
 char Human::makeMove() {
     char move;
-    cout << "Enter a move: ";
+    cout << "";
     cin >> move;
     return move;
 }
