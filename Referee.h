@@ -5,11 +5,10 @@
 #include <Player.h>
 
 class Referee {
-    private:
-        char winner(char move1, char move2);
     public:
         Referee();
         Player* refGame(Player* player1, Player* player2);
+        char determineTheWinner(char move1, char move2);
 };
 
 #endif //REFEREE_H
