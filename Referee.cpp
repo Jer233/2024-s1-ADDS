@@ -6,12 +6,11 @@ Player* Referee::refGame(Player* player1, Player* player2) {
     Move* move1 = player1->makeMove();
     Move* move2 = player2->makeMove();
 
-    string winnerRPS = determineTheRPSWinner(move1, move2);
-    string winnerRMPNZ = determineTheRMPNZWinner(move1, move2);
+    string winner = determineTheWinner(move1, move2);
 
-    if (winnerRPS == player1->getName() || winnerRMPNZ == player1->getName()) {
+    if (winner == player1->getName()) {
         return player1;
-    } else if (winnerRPS == player2->getName() || winnerRMPNZ == player2->getName()) {
+    } else if (winner == player2->getName()) {
         return player2;
     } else {
         return nullptr;
