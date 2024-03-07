@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "Player.h"
-#include "move.h"
+#include "Move.h"
 using namespace std;
 
 class HumanMove : public Move {

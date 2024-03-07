@@ -2,7 +2,7 @@
 #define COMPUTER_H
 
 #include "Player.h"
-#include "move.h"
+#include "Move.h"
 using namespace std;
 
 class ComputerMove : public Move {
