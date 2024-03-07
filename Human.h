@@ -8,12 +8,11 @@ using namespace std;
 
 class HumanMove : public Move {
     private:
-        string moveName;
+        std::string moveName;
+
     public:
-        HumanMove(const string& name) : moveName(name) {}
-        string getName() const override {
-            return moveName;
-        }
+        HumanMove(const std::string& name);
+        std::string getName() const override;
 };
 
 class Human : public Player{

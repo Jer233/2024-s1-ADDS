@@ -7,8 +7,7 @@ using namespace std;
 
 class Referee {
     private: 
-        string determineTheRPSWinner(Move* move1, Move* move2);
-        string determineTheRMPNZWinner(Move* move1, Move* move2);
+        string determineTheWinner(Move* move1, Move* move2);
     public:
         Referee();
         Player* refGame(Player* player1, Player* player2);

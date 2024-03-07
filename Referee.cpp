@@ -19,7 +19,7 @@ Player* Referee::refGame(Player* player1, Player* player2) {
 }
 
 
-string Referee::determineTheRPSWinner(Move* move1, Move* move2) {
+string Referee::determineTheWinner(Move* move1, Move* move2) {
     string name1 = move1->getName();
     string name2 = move2->getName();
 
@@ -28,30 +28,15 @@ string Referee::determineTheRPSWinner(Move* move1, Move* move2) {
     } else if (
         (name1 == "Rock" && name2 == "Scissors") ||
         (name1 == "Scissors" && name2 == "Paper") ||
-        (name1 == "Paper" && name2 == "Rock")
-    ) { 
-        return name1;
-    } else {
-        return name2;
-    } 
-}
-
-string Referee::determineTheRMPNZWinner(Move* move1, Move* move2) {
-    string name1 = move1->getName();
-    string name2 = move2->getName();
-
-    if (name1 == name2) {
-        return "Tie";
-    } else if (
+        (name1 == "Paper" && name2 == "Rock") ||
         (name1 == "Robot" && (name2 == "Zombie" || name2 == "Ninja")) ||
         (name1 == "Zombie" && (name2 == "Pirate" || name2 == "Monkey")) ||
         (name1 == "Pirate" && (name2 == "Monkey" || name2 == "Robot")) ||
         (name1 == "Monkey" && (name2 == "Ninja" || name2 == "Robot")) ||
         (name1 == "Ninja" && (name2 == "Zombie" || name2 == "Pirate"))
-    )
-    {
+    ) { 
         return name1;
     } else {
         return name2;
-    }
+    } 
 }

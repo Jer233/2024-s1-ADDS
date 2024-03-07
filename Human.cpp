@@ -2,6 +2,12 @@
 using namespace std;
 #include <iostream>
 
+HumanMove::HumanMove(const string& name) : moveName(name) {}
+
+std::string HumanMove::getName() const {
+    return moveName;
+}
+
 Human::Human(const string& name) : name(name) {}
 
 Move* Human::makeMove() {
