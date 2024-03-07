@@ -3,27 +3,61 @@
 Referee::Referee() {}
 
 Player* Referee::refGame(Player* player1, Player* player2) {
-    char move1 = player1->makeMove();
-    char move2 = player2->makeMove();
+    Move* move1 = player1->makeMove();
+    Move* move2 = player2->makeMove();
 
-    char winner = determineTheWinner(move1, move2);
+    string winnerRPS = determineTheRPSWinner(move1, move2);
+    string winnerRMPNZ = determineTheRMPNZWinner(move1, move2);
 
-    if (winner == move1) {
+    if (winnerRPS == player1->getName() || winnerRMPNZ == player1->getName()) {
+        delete move1;
+        delete move2;
         return player1;
-    } else if (winner == move2) {
+    } else if (winnerRPS == player2->getName() || winnerRMPNZ == player2->getName()) {
+        delete move1;
+        delete move2;
         return player2;
     } else {
+        delete move1;
+        delete move2;
         return nullptr;
     }
 }
 
 
-char Referee::determineTheWinner(char move1, char move2) {
-    if ((move1 == 'R' && move2 == 'S') || (move1 == 'S' && move2 == 'P') || (move1 == 'P' && move2 == 'R')) {
-        return move1;
-    } else if ((move2 == 'R' && move1 =='S') || (move2 == 'S' && move1 == 'P') || (move2 == 'P' && move1 == 'R')) {
-        return move2;
-    } else {
+string Referee::determineTheRPSWinner(Move* move1, Move* move2) {
+    string name1 = move1->getName();
+    string name2 = move2->getName();
+
+    if (name1 == name2) {
         return '\0';
+    } else if (
+        (name1 == "Rock" && name2 == "Scissors") ||
+        (name1 == "Scissors" && name2 == "Paper") ||
+        (name1 == "Paper" && name2 == "Rock")
+    ) { 
+        return name1;
+    } else {
+        return name2;
+    } 
+}
+
+string Referee::determineTheRMPNZWinner(Move* move1, Move* move2) {
+    string name1 = move1->getName();
+    string name2 = move2->getName();
+
+    if (name1 == name2) {
+        return '\0';
+    } else if (
+        (name1 == "Robot" && (name2 == "Zombie" || name2 == "Ninja")) ||
+        (name1 == "Zombie" && (name2 == "Pirate" || name2 == "Monkey")) ||
+        (name1 == "Pirate" && (name2 == "Monkey" || name2 == "Robot")) ||
+        (name1 == "Monkey" && (name2 == "Ninja" || name2 == "Robot")) ||
+        (name1 == "Ninja" && (name2 == "Zombie" || name2 == "Pirate"))
+    )
+    {
+        return name1;
+    } else {
+        return name2;
     }
 }

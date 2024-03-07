@@ -1,9 +1,9 @@
 #include "Computer.h"
 
-char Computer::makeMove() {
-    return 'R';
+Move* Computer::makeMove() {
+    return new ComputerMove("Rock");
 }
 
-std::string Computer::getName() {
+std::string Computer::getName() const {
     return "Computer";
 }

@@ -2,12 +2,23 @@
 #define COMPUTER_H
 
 #include "Player.h"
+#include "move.h"
 using namespace std;
+
+class ComputerMove : public Move {
+    private: 
+        string moveName;
+    public:
+        ComputerMove(const string& name) : moveName(name) {}
+        string getName() const override {
+            return moveName;
+        }
+};
 
 class Computer : public Player {
     public:
-        char makeMove() override;
-        string getName() override;
+        Move* makeMove() override;
+        string getName() const override;
 };
 
 #endif //COMPUTER_H
