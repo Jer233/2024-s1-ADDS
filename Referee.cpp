@@ -10,16 +10,10 @@ Player* Referee::refGame(Player* player1, Player* player2) {
     string winnerRMPNZ = determineTheRMPNZWinner(move1, move2);
 
     if (winnerRPS == player1->getName() || winnerRMPNZ == player1->getName()) {
-        delete move1;
-        delete move2;
         return player1;
     } else if (winnerRPS == player2->getName() || winnerRMPNZ == player2->getName()) {
-        delete move1;
-        delete move2;
         return player2;
     } else {
-        delete move1;
-        delete move2;
         return nullptr;
     }
 }
@@ -30,7 +24,7 @@ string Referee::determineTheRPSWinner(Move* move1, Move* move2) {
     string name2 = move2->getName();
 
     if (name1 == name2) {
-        return '\0';
+        return "Tie";
     } else if (
         (name1 == "Rock" && name2 == "Scissors") ||
         (name1 == "Scissors" && name2 == "Paper") ||
@@ -47,7 +41,7 @@ string Referee::determineTheRMPNZWinner(Move* move1, Move* move2) {
     string name2 = move2->getName();
 
     if (name1 == name2) {
-        return '\0';
+        return "Tie";
     } else if (
         (name1 == "Robot" && (name2 == "Zombie" || name2 == "Ninja")) ||
         (name1 == "Zombie" && (name2 == "Pirate" || name2 == "Monkey")) ||
