@@ -22,9 +22,7 @@ string Referee::determineTheWinner(Move* move1, Move* move2) {
     string name1 = move1->getName();
     string name2 = move2->getName();
 
-    if (name1 == name2) {
-        return "Tie";
-    } else if (
+    if (
         (name1 == "Rock" && name2 == "Scissors") ||
         (name1 == "Scissors" && name2 == "Paper") ||
         (name1 == "Paper" && name2 == "Rock") ||
@@ -35,6 +33,8 @@ string Referee::determineTheWinner(Move* move1, Move* move2) {
         (name1 == "Ninja" && (name2 == "Zombie" || name2 == "Pirate"))
     ) { 
         return name1;
+    } else if (name1 == name2) {
+        return "Tie";
     } else {
         return name2;
     } 

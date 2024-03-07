@@ -1,7 +1,7 @@
 #include "Computer.h"
 
 Move* Computer::makeMove() {
-    return new ComputerMove("Rock");
+    return new ComputerMove("Ninja");
 }
 
 std::string Computer::getName() const {
