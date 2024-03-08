@@ -19,7 +19,7 @@ class Human : public Player{
     private:
         string name;
     public:
-        Human(const string& name);
+        Human(const string& name = "Human");
         Move* makeMove() override;
         string getName() const override;
 };
