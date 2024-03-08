@@ -8,6 +8,9 @@ Player* Referee::refGame(Player* player1, Player* player2) {
 
     string winner = determineTheWinner(move1, move2);
 
+    delete move1;
+    delete move2;
+
     if (winner == player1->getName()) {
         return player1;
     } else if (winner == player2->getName()) {
