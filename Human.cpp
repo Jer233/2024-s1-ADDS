@@ -12,7 +12,7 @@ Human::Human(const string& name) : name(name) {}
 
 Move* Human::makeMove() {
     string moveName;
-    cout << "Enter Move: ";
+    cout << "";
     cin >> moveName;
     return new HumanMove(moveName);
 }
