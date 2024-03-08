@@ -7,7 +7,3 @@ Move* Computer::makeMove() {
 std::string Computer::getName() const {
     return "Computer";
 }
-
-std::string ComputerMove::getName() const {
-    return moveName;
-}
