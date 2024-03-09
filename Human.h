@@ -19,6 +19,8 @@ class Human : public Player{
         string name;
 
     public:
+        Human() : name("Human") {}
+
         Human(const string& playerName);
         Move* makeMove() override;
         string getName() const override;
