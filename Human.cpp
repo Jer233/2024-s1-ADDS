@@ -4,15 +4,15 @@ using namespace std;
 
 HumanMove::HumanMove(const string& name) : moveName(name) {}
 
-std::string HumanMove::getName() const {
+string HumanMove::getName() const {
     return moveName;
 }
 
-Human::Human(const string& name) : name(name) {}
+Human::Human(const string& playerName) : name(playerName) {}
 
 Move* Human::makeMove() {
     string moveName;
-    cout << "";
+    cout << "Enter Move: ";
     cin >> moveName;
     return new HumanMove(moveName);
 }

@@ -6,11 +6,14 @@ Player* Referee::refGame(Player* player1, Player* player2) {
     Move* move1 = player1->makeMove();
     Move* move2 = player2->makeMove();
 
-    string winner = determineTheWinner(move1, move2);
+    string name1 = player1->getName();
+    string name2 = player2->getName();
 
-    if (winner == player1->getName()) {
+    string winner = determineTheWinner(move1, move2, player1, player2);
+
+    if (winner == name1) {
         return player1;
-    } else if (winner == player2->getName()) {
+    } else if (winner == name2) {
         return player2;
     } else {
         return nullptr;
@@ -18,19 +21,21 @@ Player* Referee::refGame(Player* player1, Player* player2) {
 }
 
 
-string Referee::determineTheWinner(Move* move1, Move* move2) {
-    string name1 = move1->getName();
-    string name2 = move2->getName();
+string Referee::determineTheWinner(Move* move1, Move* move2, Player* player1, Player* player2) {
+    string name1 = player1->getName();
+    string name2 = player2->getName();
+    string moveName1 = move1->getName();
+    string moveName2 = move2->getName();
 
     if (
-        (name1 == "Rock" && name2 == "Scissors") ||
-        (name1 == "Scissors" && name2 == "Paper") ||
-        (name1 == "Paper" && name2 == "Rock") ||
-        (name1 == "Robot" && (name2 == "Zombie" || name2 == "Ninja")) ||
-        (name1 == "Zombie" && (name2 == "Pirate" || name2 == "Monkey")) ||
-        (name1 == "Pirate" && (name2 == "Monkey" || name2 == "Robot")) ||
-        (name1 == "Monkey" && (name2 == "Ninja" || name2 == "Robot")) ||
-        (name1 == "Ninja" && (name2 == "Zombie" || name2 == "Pirate"))
+        (moveName1 == "Rock" && moveName2 == "Scissors") ||
+        (moveName1 == "Scissors" && moveName2 == "Paper") ||
+        (moveName1 == "Paper" && moveName2 == "Rock") ||
+        (moveName1 == "Robot" && (moveName2 == "Zombie" || moveName2 == "Ninja")) ||
+        (moveName1 == "Zombie" && (moveName2 == "Pirate" || moveName2 == "Monkey")) ||
+        (moveName1 == "Pirate" && (moveName2 == "Monkey" || moveName2 == "Robot")) ||
+        (moveName1 == "Monkey" && (moveName2 == "Ninja" || moveName2 == "Robot")) ||
+        (moveName1 == "Ninja" && (moveName2 == "Zombie" || moveName2 == "Pirate"))
     ) { 
         return name1;
     } else if (name1 == name2) {

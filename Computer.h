@@ -9,10 +9,8 @@ class ComputerMove : public Move {
     private: 
         string moveName;
     public:
-        ComputerMove(const string& name) : moveName(name) {}
-        string getName() const override {
-            return moveName;
-        }
+        ComputerMove(const string& name);
+        string getName() const override;
 };
 
 class Computer : public Player {
