@@ -6,27 +6,22 @@
 using namespace std;
 
 int Reverser::reverseDigit(int value) {
-    if (value <= 9){
-        return value;
-    } else if (value >= 10) {
-        return (value % 10) * pow(10, countDigits(value) - 1) + reverseDigit(value / 10);
-    } else {
+    if (value < 0) {
         return -1;
+    } else if (value <= 9){
+        return value;
+    } else {
+        return (value % 10) * pow(10, countDigits(value) - 1) + reverseDigit(value / 10);
     }
 }
 
 string Reverser::reverseString(string characters) {
-    string ER = "ERROR";
-    for (char ch : characters) {
-        if (!isalnum(ch)) {
-            return ER;
-        }
+    if (characters.empty()) {
+        return "ERROR";
     }
     if (characters.length() <= 1) {
         return characters;
-    } else if (characters.length() >= 2) {
-        return reverseString(characters.substr(1)) + characters[0];
     } else {
-        return ER;
+        return reverseString(characters.substr(1)) + characters[0];
     }
 }
